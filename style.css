@@ -1,7 +1,10 @@
-body {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: 
         linear-gradient(135deg, rgba(30, 60, 114, 0.75) 0%, rgba(42, 82, 152, 0.75) 25%, rgba(74, 111, 165, 0.75) 50%, rgba(22, 107, 160, 0.75) 75%, rgba(15, 76, 117, 0.75) 100%),
@@ -10,9 +13,19 @@ body {
     background-position: center;
     background-attachment: fixed;
     color: white;
-    min-height: 100%;
+    min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+}
+
+html {
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .winter-scene {
@@ -133,16 +146,6 @@ body {
         transform: translateY(-100px) translateX(50px) scale(0);
         opacity: 0;
     }
-}
-
-html {
-    height: 100%;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 header {
@@ -266,9 +269,20 @@ header {
     padding: 4rem 0;
 }
 
+.features h2,
+.demo-section h2,
+.commands h2,
+.social-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -374,7 +388,7 @@ header {
 
 .demo-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -391,6 +405,13 @@ header {
 .frame-checker {
     padding: 2.5rem;
     min-height: 320px;
+}
+
+.calculator h3,
+.frame-checker h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #FFD700;
 }
 
 .calc-display {
@@ -551,6 +572,42 @@ header {
     padding: 4rem 0;
 }
 
+.command-list {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.command {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.command:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.command:last-child {
+    border-bottom: none;
+}
+
+.command-name {
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
 .social-section {
     padding: 4rem 0;
     background: rgba(0, 0, 0, 0.2);
@@ -558,6 +615,13 @@ header {
     margin: 2rem 0;
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-section p {
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
 }
 
 .social-grid {
@@ -710,42 +774,6 @@ header {
     font-size: 0.95rem;
 }
 
-.command-list {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-top: 2rem;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.command {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.command:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-}
-
-.command:last-child {
-    border-bottom: none;
-}
-
-.command-name {
-    font-family: 'Courier New', monospace;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-}
-
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -755,15 +783,12 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Consistent sizing across all devices */
-.demo-container {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+footer p {
+    opacity: 0.7;
+    margin-top: 10px;
 }
 
-.features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .demo-container {
         grid-template-columns: 1fr;
@@ -797,10 +822,6 @@ footer {
     
     .calc-buttons {
         gap: 10px;
-    }
-    
-    .tree-hut, .tree {
-        font-size: 50px;
     }
     
     .container {
